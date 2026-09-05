@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println(" Enter the array elements");
+
+        int[] arr = new int[6];
+
+        for(int i=0; i<arr.length; i++){
+            arr[i] = sc.nextInt();
+        }
+
+        int maxcount = 0, fmax = 0;
+
+        // ADD THESE
+        int secmaxcount = 0, fsec = 0;
+
+        for(int i=0; i<arr.length; i++){
+
+            int found = 0;
+
+            for(int j=0; j<i; j++){
+                if(arr[i] == arr[j]){
+                    found = 1;
+                    break;
+                }
+            }
+
+            if(found == 1){
+                continue;
+            }
+
+            int count = 1;
+
+            for(int j=i+1; j<arr.length; j++){
+                if(arr[i] == arr[j]){
+                    count++;
+                }
+            }
+
+            if(count > maxcount){
+
+                // ADD THESE
+                secmaxcount = maxcount;
+                fsec = fmax;
+
+                maxcount = count;
+                fmax = arr[i];
+
+            }
+            // ADD THIS
+            else if(count > secmaxcount && count < maxcount){
+
+                secmaxcount = count;
+                fsec = arr[i];
+
+            }
+        }
+
+        System.out.println("Maximum frequency element: " + fmax);
+        System.out.println("Second maximum frequency element: " + fsec);
+    }
+}
