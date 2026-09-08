@@ -22,6 +22,7 @@ public class Main{
             else{
                 break;
             }
+      if(rightcount==K){
             if(maxsum<sum){
                 maxsum=sum;
             }
@@ -31,6 +32,7 @@ public class Main{
                 rightcount=0;
             
         }
+}
         System.out.println(maxsum);
     }
 }
