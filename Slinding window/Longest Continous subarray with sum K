@@ -1,0 +1,42 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc= new Scanner(System.in);
+        System.out.println("enter the target value");
+        int target=sc.nextInt();
+        System.out.println("enter the array elements");
+        int[] arr= new int[6];
+        for(int i=0; i<arr.length; i++){
+            arr[i]=sc.nextInt();
+        }
+        int right=0,left=0;
+        int maxcount=0,count=0;
+        int sum=0;
+        while(right<arr.length){
+            sum+=arr[right];
+            if(sum<target){
+                right++;
+                count++;
+            }
+            else if(sum>target){
+                left++;
+                right=left;
+                sum=0;
+                count=0;
+            }
+            else{
+                count++;
+                left++;
+                right=left;
+            }
+            if(sum==target){
+         if(count > maxcount){
+             maxcount=count;
+         }
+                sum=0;
+                count=0;
+        }
+        }
+        System.out.println(maxcount);
+    }
+}
