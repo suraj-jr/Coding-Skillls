@@ -1,0 +1,57 @@
+import java.util.Scanner;
+import java.util.Arrays;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc= new Scanner(System.in);
+        System.out.println("enter the target value");
+        int target= sc.nextInt();
+        System.out.println("enter the array elements");
+        int[] arr= new int[7];
+        for(int i=0; i<arr.length; i++){
+            arr[i]=sc.nextInt();
+        }
+        Arrays.sort(arr);
+        int left=0;
+        int right=arr.length-1;
+        int mid=arr.length/2;
+        if(arr[mid]<target){
+             left=mid+1;
+        }
+        else if(arr[mid]>target){
+             right=mid-1;
+        }
+        else{
+            right=mid;
+        }
+        while(arr[mid]<target){
+                if(arr[left]!=target){
+                 left++;
+             }
+             else{
+                 System.out.println(left);
+                 return;
+             }
+        }
+        while(arr[mid]>target){
+            left=0;
+          if(arr[right]!=arr[left]){
+               left++;
+         }
+                else{
+                 System.out.println(left);
+                 return;
+                }
+            }
+            while(arr[mid]==target){
+                while(right>=left){
+                    if(arr[left]!=arr[right]){
+                        left++;
+                    }
+                    else{
+                        System.out.println(left);
+                        return;
+                    }
+                }
+            }
+            }
+        }  
