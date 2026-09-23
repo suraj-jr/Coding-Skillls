@@ -1,0 +1,58 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc= new Scanner(System.in);
+          System.out.println("enter the array elements");
+        int[] arr1=new int[6];
+        int[] arr2= new int[6];
+        for(int i=0; i<arr1.length; i++){
+            arr1[i]=sc.nextInt();
+        }
+        int left=0,mid=arr1.length/2, right=mid;
+        int k=0;
+        for(int i=0; i<2; i++){
+            for(int j=i+1; j<2; j++){
+                  if(arr[left]<arr[left+1]){
+                    int temp=arr[left];
+                    arr[left]=arr[left+1];
+                    arr[left+1]=temp;
+                  }
+                  if(arr[right]<arr[right+1]){
+                      int temp=arr[left];
+                      arr[left]=arr[left+1];
+                      arr[left+1]=temp;
+                  }
+            }
+            }
+        while(left<mid && right<arr1.length){
+            if(arr1[left]<arr1[right]){
+                arr2[k]=arr1[left];
+                left++;
+                k++;
+            }
+            else if(arr1[left]>arr1[right]){
+                arr2[k]=arr1[right];
+                right++;
+                k++;
+            }
+            else{
+                arr2[k]=arr1[left];
+                left++;
+                k++;
+            }
+        }
+        while(left<mid){
+            arr2[k]=arr1[left];
+            left++;
+            k++;
+        }
+        while(right<arr1.length){
+            arr2[k]=arr1[right];
+            right++;
+            k++;
+        }
+        for(int i=0; i<arr2.length; i++){
+        System.out.print(arr2[i] + " ");
+        }
+    }
+}
