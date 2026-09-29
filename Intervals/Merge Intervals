@@ -1,0 +1,37 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter number of intervals:");
+        int n = sc.nextInt();
+        int[][] arr = new int[n][2];
+        System.out.println("Enter start and end values:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < 2; j++) {
+                arr[i][j] = sc.nextInt();
+            }
+        }
+        int currentStart = arr[0][0];
+        int currentEnd = arr[0][1];
+        List<int[]> result = new ArrayList<>();
+        for (int i = 1; i < n; i++) {
+            int nextStart = arr[i][0];
+            int nextEnd = arr[i][1];
+
+            if (nextStart <= currentEnd) {
+
+                currentEnd = Math.max(currentEnd, nextEnd);
+
+            } else {
+                result.add(new int[]{currentStart, currentEnd});
+                currentStart = nextStart;
+                currentEnd = nextEnd;
+            }
+        }
+        result.add(new int[]{currentStart, currentEnd});
+        System.out.println("Merged intervals:");
+        for (int[] interval : result) {
+            System.out.println("[" + interval[0] + ", " + interval[1] + "]");
+        }
+    }
+}
