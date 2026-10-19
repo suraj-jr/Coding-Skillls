@@ -1,0 +1,34 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc= new Scanner(System.in);
+        System.out.println("enter the n value:");
+        int N=sc.nextInt();
+        int[][]arr=new int[N][N];
+        System.out.println("enter the 2d array:");
+        for(int i=0; i<arr.length; i++){
+            for(int j=0; j<arr[i].length; j++){
+                arr[i][j]=sc.nextInt();
+            }
+        }
+        int sum=0;
+        for(int i=0; i<arr.length;i++){
+            for(int j=0; j<arr[i].length; j++){
+                if(i==j){
+                  sum+=arr[i][j];
+                  
+                }
+            }
+        }
+        int secsum=0,diff=0;
+           for(int i=0; i<arr.length;i++){
+            for(int j=0; j<arr[i].length; j++){
+                if(i+j==N-1){
+                    secsum+=arr[i][j];
+                }
+    }
+}
+            diff=Math.abs(sum-secsum);
+            System.out.print(diff);
+    }
+}
