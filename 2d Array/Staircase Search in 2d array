@@ -1,0 +1,36 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc= new Scanner(System.in);
+        System.out.println("enter the target value:");
+        int tar= sc.nextInt();
+        System.out.println("enter the matrix size: ");
+        int n=sc.nextInt();
+        int[][] arr= new int[n][n];
+        System.out.println("enter the matrix value: ");
+        for(int i=0; i<arr.length; i++){
+            for(int j=0; j<arr[i].length; j++){
+                arr[i][j]=sc.nextInt();
+            }
+        }
+           int i=0,j=n-1;
+        boolean found=false;
+        while(i<n && j>=0){
+                if(arr[i][j]>tar){
+                    j--;      
+                }
+                else if(arr[i][j]<tar){
+                    i++;
+                }
+            else{
+                System.out.println("target is  found at index of " +i +"and" +j);
+                found=true;
+                break;
+            }
+            
+            }
+        if(!found){
+            System.out.println("taget is not found");
+        }
+        }
+    }
